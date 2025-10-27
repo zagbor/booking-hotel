@@ -45,7 +45,6 @@ public class BookingController {
     }
 
     @GetMapping("/suggestions")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Mono<List<RoomView>> suggestions() {
         return bookingService.getRoomSuggestions();
     }
