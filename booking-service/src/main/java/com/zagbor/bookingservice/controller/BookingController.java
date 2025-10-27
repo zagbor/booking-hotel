@@ -49,11 +49,6 @@ public class BookingController {
         return bookingService.getRoomSuggestions();
     }
 
-    @GetMapping("/debug/context")
-    public Map<String,Object> me(@AuthenticationPrincipal Jwt jwt){
-        return Map.of("ok", jwt!=null, "scope", jwt!=null? jwt.getClaimAsString("scope"): null);
-    }
-
     @GetMapping("/all")
     public ResponseEntity<List<Booking>> all(@AuthenticationPrincipal Jwt jwt) {
         String scope = jwt.getClaimAsString("scope");
